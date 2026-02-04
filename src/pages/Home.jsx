@@ -1,7 +1,44 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
 import { profileData, experienceData, skillsData } from '../data/portfolioData'
+// Tech Stack Icons
+import {
+    SiPython, SiJavascript, SiHtml5, SiCplusplus, SiMysql,
+    SiFlask, SiFastapi, SiReact, SiDocker, SiGit, SiLinux, SiVisualstudiocode, SiAndroid,
+    SiPostgresql, SiMongodb, SiRedis, SiNginx, SiProxmox
+} from 'react-icons/si'
+import { DiCss3, DiJava } from 'react-icons/di'
 import './Home.css'
+
+// Icon mapping for skills
+const skillIcons = {
+    // Languages
+    'Python': SiPython,
+    'JavaScript': SiJavascript,
+    'Java': DiJava,
+    'HTML': SiHtml5,
+    'CSS': DiCss3,
+    'C++': SiCplusplus,
+    'SQL': SiMysql,
+    // Frameworks
+    'Flask': SiFlask,
+    'FastAPI': SiFastapi,
+    'React': SiReact,
+    // Tools
+    'Docker': SiDocker,
+    'Git': SiGit,
+    'Linux': SiLinux,
+    'VS Code': SiVisualstudiocode,
+    'Android Studio': SiAndroid,
+    // Databases
+    'PostgreSQL': SiPostgresql,
+    'MySQL': SiMysql,
+    'MongoDB': SiMongodb,
+    'Redis': SiRedis,
+    // DevOps
+    'Nginx': SiNginx,
+    'Proxmox': SiProxmox,
+}
 
 function Home() {
     // Get primary skills for display
@@ -89,14 +126,12 @@ function Home() {
 
                                 {/* Hero CTAs */}
                                 <div className="hero-ctas">
-                                    <a
-                                        href={profileData.github}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
+                                    <Link
+                                        to="/projects"
                                         className="btn btn-primary cta-primary"
                                     >
                                         💻 View My Projects
-                                    </a>
+                                    </Link>
                                     <a
                                         href={`mailto:${profileData.email}`}
                                         className="btn btn-secondary cta-secondary"
@@ -251,15 +286,20 @@ function Home() {
                             <h2 className="highlight-tape">Programming Languages</h2>
 
                             <div className="skills-grid">
-                                {primaryLanguages.map((lang, idx) => (
-                                    <div key={idx} className={`skill-card lang-${idx}`}>
-                                        <div className="skill-icon">{lang.name.substring(0, 2)}</div>
-                                        <p className="skill-name">{lang.name}</p>
-                                        <div className="skill-level">
-                                            <div className="skill-bar" style={{ width: `${lang.level}%` }}></div>
+                                {primaryLanguages.map((lang, idx) => {
+                                    const IconComponent = skillIcons[lang.name];
+                                    return (
+                                        <div key={idx} className={`skill-card lang-${idx}`}>
+                                            <div className="skill-icon">
+                                                {IconComponent ? <IconComponent /> : lang.name.substring(0, 2)}
+                                            </div>
+                                            <p className="skill-name">{lang.name}</p>
+                                            <div className="skill-level">
+                                                <div className="skill-bar" style={{ width: `${lang.level}%` }}></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </section>
 
@@ -268,15 +308,20 @@ function Home() {
                             <h2 className="highlight-tape">Frameworks & Tools</h2>
 
                             <div className="skills-grid">
-                                {[...primaryFrameworks, ...primaryTools].map((skill, idx) => (
-                                    <div key={idx} className={`skill-card tool-${idx}`}>
-                                        <div className="skill-icon">{skill.name.substring(0, 2)}</div>
-                                        <p className="skill-name">{skill.name}</p>
-                                        <div className="skill-level">
-                                            <div className="skill-bar" style={{ width: `${skill.level}%` }}></div>
+                                {[...primaryFrameworks, ...primaryTools].map((skill, idx) => {
+                                    const IconComponent = skillIcons[skill.name];
+                                    return (
+                                        <div key={idx} className={`skill-card tool-${idx}`}>
+                                            <div className="skill-icon">
+                                                {IconComponent ? <IconComponent /> : skill.name.substring(0, 2)}
+                                            </div>
+                                            <p className="skill-name">{skill.name}</p>
+                                            <div className="skill-level">
+                                                <div className="skill-bar" style={{ width: `${skill.level}%` }}></div>
+                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    );
+                                })}
                             </div>
                         </section>
 

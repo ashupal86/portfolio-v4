@@ -798,8 +798,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: var(--text-2xl);
+    font-size: var(--text-3xl);
     font-weight: 900;
+    transition: transform var(--transition-base);
+}
+
+.skill-icon svg {
+    width: 36px;
+    height: 36px;
+}
+
+.skill-card:hover .skill-icon {
+    transform: scale(1.1) rotate(5deg);
 }
 
 /* Different colors for different skill types */
