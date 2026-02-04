@@ -64,38 +64,39 @@
     flex-shrink: 0;
 }
 
-/* Stacked polaroid effect */
+/* Stacked polaroid effect with colorful cards */
 .profile-photo-wrapper::before,
 .profile-photo-wrapper::after {
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: #FFFFFF;
-    border: 8px solid #FFFFFF;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
     z-index: -1;
+    border-radius: 4px;
 }
 
-/* Bottom card - rotated more */
+/* Bottom card - Yellow (matching highlight color) */
 .profile-photo-wrapper::before {
     top: 8px;
     left: -6px;
     transform: rotate(-4deg);
+    background-color: #FFE500;
 }
 
-/* Middle card - rotated less */
+/* Middle card - Blue (matching accent color) */
 .profile-photo-wrapper::after {
     top: 4px;
     left: -3px;
     transform: rotate(-2deg);
+    background-color: #E3F2FD;
 }
 
 .profile-photo {
     width: 200px;
     height: 240px;
-    background: #FFFFFF;
-    border: 12px solid #FFFFFF;
+    background: #FCE4EC;
+    /* Pink card on top */
     box-shadow:
         0 8px 16px rgba(0, 0, 0, 0.2),
         0 4px 8px rgba(0, 0, 0, 0.1);
@@ -106,6 +107,7 @@
     transition: transform var(--transition-base);
     position: relative;
     z-index: 1;
+    border-radius: 4px;
 }
 
 .profile-photo:hover {
@@ -122,7 +124,7 @@
 .photo-placeholder {
     font-size: var(--text-5xl);
     font-weight: 900;
-    color: #FFFFFF;
+    color: var(--color-text-primary);
 }
 
 .yellow-tape {
