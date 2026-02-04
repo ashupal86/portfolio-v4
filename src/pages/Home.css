@@ -812,6 +812,61 @@
     transform: scale(1.1) rotate(5deg);
 }
 
+/* SKILL TOOLTIP */
+.skill-tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background-color: var(--color-text-primary);
+    color: var(--color-card-bg);
+    padding: var(--space-md) var(--space-lg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    pointer-events: none;
+    white-space: nowrap;
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.skill-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--color-text-primary);
+}
+
+.skill-tooltip strong {
+    font-size: var(--text-lg);
+    font-weight: 800;
+    color: var(--color-highlight-yellow);
+}
+
+.skill-tooltip span {
+    font-size: var(--text-sm);
+    color: var(--color-card-bg);
+}
+
+.skill-tooltip .proficiency {
+    font-size: var(--text-xs);
+    color: var(--color-highlight-yellow);
+    font-weight: 600;
+}
+
+.skill-card:hover .skill-tooltip {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
 /* Different colors for different skill types */
 .skill-card.lang-0 .skill-icon {
     background-color: #306998;

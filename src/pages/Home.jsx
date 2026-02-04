@@ -143,58 +143,21 @@ function Home() {
                                         📝 Read My Blog
                                     </Link>
                                 </div>
-
-                                {/* Quick Stats */}
-                                <div className="hero-stats">
-                                    <div className="hero-stat">
-                                        <span className="stat-number">{profileData.stats.publicRepos}</span>
-                                        <span className="stat-label">Projects</span>
-                                    </div>
-                                    <div className="hero-stat">
-                                        <span className="stat-number">3+</span>
-                                        <span className="stat-label">Years Learning</span>
-                                    </div>
-                                    <div className="hero-stat">
-                                        <span className="stat-number">{experienceData.length}</span>
-                                        <span className="stat-label">Experiences</span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
-                        {/* Contact Card */}
+                        {/* Simplified Contact Card */}
                         <div className="hero-contact-card">
-                            <h3 className="contact-card-title">📬 Let's Connect</h3>
-
-                            <div className="contact-info-compact">
-                                <div className="info-item">
-                                    <span className="info-icon">📍</span>
-                                    <span className="info-text">{profileData.location}</span>
-                                </div>
-                                <div className="info-item">
-                                    <span className="info-icon">📧</span>
-                                    <a href={`mailto:${profileData.email}`} className="info-text">{profileData.email}</a>
-                                </div>
-                                <div className="info-item">
-                                    <span className="info-icon">📱</span>
-                                    <a href={`tel:${profileData.phone}`} className="info-text">{profileData.phone}</a>
-                                </div>
-                                <div className="info-item">
-                                    <span className="info-icon">🌐</span>
-                                    <a href={profileData.website} target="_blank" rel="noopener noreferrer" className="info-text">
-                                        {profileData.website.replace('https://', '')}
-                                    </a>
-                                </div>
-                            </div>
+                            <h3 className="contact-card-title">🚀 Connect With Me</h3>
 
                             <div className="social-links-compact">
-                                <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
+                                <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub" title="GitHub">
                                     💻
                                 </a>
-                                <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+                                <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn" title="LinkedIn">
                                     💼
                                 </a>
-                                <a href={`mailto:${profileData.email}`} className="social-icon" aria-label="Email">
+                                <a href={`mailto:${profileData.email}`} className="social-icon" aria-label="Email" title="Email">
                                     📧
                                 </a>
                             </div>
@@ -286,14 +249,20 @@ function Home() {
                             <div className="skills-grid">
                                 {primaryLanguages.map((lang, idx) => {
                                     const IconComponent = skillIcons[lang.name];
+                                    const experience = lang.level >= 80 ? '2+ years' : lang.level >= 60 ? '1+ year' : '6+ months';
                                     return (
-                                        <div key={idx} className={`skill-card lang-${idx}`}>
+                                        <div key={idx} className={`skill-card lang-${idx}`} title={`${lang.name} - ${experience} experience`}>
                                             <div className="skill-icon">
                                                 {IconComponent ? <IconComponent /> : lang.name.substring(0, 2)}
                                             </div>
                                             <p className="skill-name">{lang.name}</p>
                                             <div className="skill-level">
                                                 <div className="skill-bar" style={{ width: `${lang.level}%` }}></div>
+                                            </div>
+                                            <div className="skill-tooltip">
+                                                <strong>{lang.name}</strong>
+                                                <span>{experience} experience</span>
+                                                <span className="proficiency">{lang.level}% proficiency</span>
                                             </div>
                                         </div>
                                     );
@@ -308,14 +277,20 @@ function Home() {
                             <div className="skills-grid">
                                 {[...primaryFrameworks, ...primaryTools].map((skill, idx) => {
                                     const IconComponent = skillIcons[skill.name];
+                                    const experience = skill.level >= 80 ? '2+ years' : skill.level >= 60 ? '1+ year' : '6+ months';
                                     return (
-                                        <div key={idx} className={`skill-card tool-${idx}`}>
+                                        <div key={idx} className={`skill-card tool-${idx}`} title={`${skill.name} - ${experience} experience`}>
                                             <div className="skill-icon">
                                                 {IconComponent ? <IconComponent /> : skill.name.substring(0, 2)}
                                             </div>
                                             <p className="skill-name">{skill.name}</p>
                                             <div className="skill-level">
                                                 <div className="skill-bar" style={{ width: `${skill.level}%` }}></div>
+                                            </div>
+                                            <div className="skill-tooltip">
+                                                <strong>{skill.name}</strong>
+                                                <span>{experience} experience</span>
+                                                <span className="proficiency">{skill.level}% proficiency</span>
                                             </div>
                                         </div>
                                     );
