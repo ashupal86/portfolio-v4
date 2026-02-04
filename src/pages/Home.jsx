@@ -227,9 +227,8 @@ function Home() {
                             <div className="skills-grid">
                                 {primaryLanguages.map((lang, idx) => {
                                     const IconComponent = skillIcons[lang.name];
-                                    const experience = lang.level >= 80 ? '2+ years' : lang.level >= 60 ? '1+ year' : '6+ months';
                                     return (
-                                        <div key={idx} className={`skill-card lang-${idx}`} title={`${lang.name} - ${experience} experience`}>
+                                        <div key={idx} className={`skill-card lang-${idx}`} title={`${lang.name} - ${lang.level}% proficiency`}>
                                             <div className="skill-icon">
                                                 {IconComponent ? <IconComponent /> : lang.name.substring(0, 2)}
                                             </div>
@@ -239,7 +238,6 @@ function Home() {
                                             </div>
                                             <div className="skill-tooltip">
                                                 <strong>{lang.name}</strong>
-                                                <span>{experience} experience</span>
                                                 <span className="proficiency">{lang.level}% proficiency</span>
                                             </div>
                                         </div>
@@ -255,9 +253,8 @@ function Home() {
                             <div className="skills-grid">
                                 {[...primaryFrameworks, ...primaryTools].map((skill, idx) => {
                                     const IconComponent = skillIcons[skill.name];
-                                    const experience = skill.level >= 80 ? '2+ years' : skill.level >= 60 ? '1+ year' : '6+ months';
                                     return (
-                                        <div key={idx} className={`skill-card tool-${idx}`} title={`${skill.name} - ${experience} experience`}>
+                                        <div key={idx} className={`skill-card tool-${idx}`} title={`${skill.name} - ${skill.level}% proficiency`}>
                                             <div className="skill-icon">
                                                 {IconComponent ? <IconComponent /> : skill.name.substring(0, 2)}
                                             </div>
@@ -267,7 +264,6 @@ function Home() {
                                             </div>
                                             <div className="skill-tooltip">
                                                 <strong>{skill.name}</strong>
-                                                <span>{experience} experience</span>
                                                 <span className="proficiency">{skill.level}% proficiency</span>
                                             </div>
                                         </div>
