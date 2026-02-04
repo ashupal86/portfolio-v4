@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { Helmet } from 'react-helmet-async'
 import { profileData, experienceData, skillsData } from '../data/portfolioData'
 import './Home.css'
 
@@ -10,11 +11,64 @@ function Home() {
 
     return (
         <div className="portfolio">
-            {/* Header Section */}
-            <header className="portfolio-header">
+            {/* SEO Meta Tags */}
+            <Helmet>
+                <title>{profileData.name} - Portfolio | Python Developer & DevOps Enthusiast</title>
+                <meta name="description" content={`${profileData.name} - ${profileData.title}. Explore my projects, skills, and blog posts about Python, Flask, FastAPI, DevOps, and web development.`} />
+                <meta name="keywords" content="Ashish Pal, Python developer, Flask, FastAPI, DevOps, React, web development, portfolio, NIET, Greater Noida, full stack developer" />
+
+                {/* Open Graph / Facebook */}
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content={profileData.website} />
+                <meta property="og:title" content={`${profileData.name} - Portfolio`} />
+                <meta property="og:description" content={profileData.bio} />
+
+                {/* Twitter */}
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content={profileData.website} />
+                <meta property="twitter:title" content={`${profileData.name} - Portfolio`} />
+                <meta property="twitter:description" content={profileData.bio} />
+
+                {/* Canonical URL */}
+                <link rel="canonical" href={profileData.website} />
+
+                {/* Author */}
+                <meta name="author" content={profileData.name} />
+
+                {/* Structured Data - JSON-LD */}
+                <script type="application/ld+json">
+                    {JSON.stringify({
+                        "@context": "https://schema.org",
+                        "@type": "Person",
+                        "name": profileData.name,
+                        "url": profileData.website,
+                        "email": profileData.email,
+                        "telephone": profileData.phone,
+                        "jobTitle": "Aspiring Developer",
+                        "description": profileData.bio,
+                        "address": {
+                            "@type": "PostalAddress",
+                            "addressLocality": "Greater Noida",
+                            "addressRegion": "Uttar Pradesh",
+                            "addressCountry": "India"
+                        },
+                        "alumniOf": {
+                            "@type": "EducationalOrganization",
+                            "name": profileData.education.institution
+                        },
+                        "sameAs": [
+                            profileData.github,
+                            profileData.linkedin
+                        ]
+                    })}
+                </script>
+            </Helmet>
+
+            {/* Hero Section */}
+            <header className="portfolio-header hero-section">
                 <div className="container">
-                    <div className="header-content">
-                        <div className="profile-section">
+                    <div className="hero-content">
+                        <div className="hero-main">
                             <div className="profile-photo-wrapper">
                                 <div className="profile-photo">
                                     <div className="photo-placeholder">AP</div>
@@ -22,55 +76,91 @@ function Home() {
                                 <div className="yellow-tape top-left"></div>
                             </div>
 
-                            <div className="profile-info">
-                                <h1 className="name">{profileData.name}</h1>
-                                <p className="tagline">{profileData.title}</p>
+                            <div className="hero-text">
+                                <h1 className="hero-name">
+                                    Hi, I'm <span className="highlight-name">{profileData.name}</span> 👋
+                                </h1>
+                                <h2 className="hero-title">{profileData.title}</h2>
+                                <p className="hero-bio">{profileData.bio}</p>
 
-                                <div className="contact-info">
-                                    <div className="info-item">
-                                        <span className="label">Location:</span>
-                                        <span className="value">{profileData.location}</span>
-                                    </div>
-                                    <div className="info-item">
-                                        <span className="label">Phone:</span>
-                                        <span className="value">{profileData.phone}</span>
-                                    </div>
-                                    <div className="info-item">
-                                        <span className="label">Email:</span>
-                                        <span className="value">{profileData.email}</span>
-                                    </div>
-                                    <div className="info-item">
-                                        <span className="label">Website:</span>
-                                        <span className="value">
-                                            <a href={profileData.website} target="_blank" rel="noopener noreferrer">
-                                                {profileData.website.replace('https://', '')}
-                                            </a>
-                                        </span>
-                                    </div>
+                                {/* Hero CTAs */}
+                                <div className="hero-ctas">
+                                    <a
+                                        href={profileData.github}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="btn btn-primary cta-primary"
+                                    >
+                                        💻 View My Projects
+                                    </a>
+                                    <a
+                                        href={`mailto:${profileData.email}`}
+                                        className="btn btn-secondary cta-secondary"
+                                    >
+                                        📧 Get In Touch
+                                    </a>
+                                    <Link
+                                        to="/blog"
+                                        className="btn btn-outline cta-outline"
+                                    >
+                                        📝 Read My Blog
+                                    </Link>
                                 </div>
 
-                                <div className="social-links">
-                                    <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="social-link">
-                                        💻 GitHub
-                                    </a>
-                                    <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="social-link">
-                                        💼 LinkedIn
-                                    </a>
-                                    <a href={`mailto:${profileData.email}`} className="social-link">
-                                        📧 Email
-                                    </a>
+                                {/* Quick Stats */}
+                                <div className="hero-stats">
+                                    <div className="hero-stat">
+                                        <span className="stat-number">{profileData.stats.publicRepos}</span>
+                                        <span className="stat-label">Projects</span>
+                                    </div>
+                                    <div className="hero-stat">
+                                        <span className="stat-number">3+</span>
+                                        <span className="stat-label">Years Learning</span>
+                                    </div>
+                                    <div className="hero-stat">
+                                        <span className="stat-number">{experienceData.length}</span>
+                                        <span className="stat-label">Experiences</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div className="handwritten-note">
-                            <p className="handwritten">
-                                {profileData.bio}
-                            </p>
-                            <p className="handwritten contact-details">
-                                📧 {profileData.email}<br />
-                                🔗 {profileData.linkedin.replace('https://linkedin.com/in/', '')}
-                            </p>
+                        {/* Contact Card */}
+                        <div className="hero-contact-card">
+                            <h3 className="contact-card-title">📬 Let's Connect</h3>
+
+                            <div className="contact-info-compact">
+                                <div className="info-item">
+                                    <span className="info-icon">📍</span>
+                                    <span className="info-text">{profileData.location}</span>
+                                </div>
+                                <div className="info-item">
+                                    <span className="info-icon">📧</span>
+                                    <a href={`mailto:${profileData.email}`} className="info-text">{profileData.email}</a>
+                                </div>
+                                <div className="info-item">
+                                    <span className="info-icon">📱</span>
+                                    <a href={`tel:${profileData.phone}`} className="info-text">{profileData.phone}</a>
+                                </div>
+                                <div className="info-item">
+                                    <span className="info-icon">🌐</span>
+                                    <a href={profileData.website} target="_blank" rel="noopener noreferrer" className="info-text">
+                                        {profileData.website.replace('https://', '')}
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div className="social-links-compact">
+                                <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
+                                    💻
+                                </a>
+                                <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+                                    💼
+                                </a>
+                                <a href={`mailto:${profileData.email}`} className="social-icon" aria-label="Email">
+                                    📧
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
