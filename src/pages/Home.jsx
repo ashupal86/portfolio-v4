@@ -71,7 +71,11 @@ function Home() {
                         <div className="hero-main">
                             <div className="profile-photo-wrapper">
                                 <div className="profile-photo">
-                                    <div className="photo-placeholder">AP</div>
+                                    <img
+                                        src="/profile.jpeg"
+                                        alt={`${profileData.name} - Profile Photo`}
+                                        className="profile-image"
+                                    />
                                 </div>
                                 <div className="yellow-tape top-left"></div>
                             </div>
