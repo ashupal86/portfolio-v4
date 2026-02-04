@@ -4,7 +4,7 @@ import { profileData, experienceData, skillsData } from '../data/portfolioData'
 // Tech Stack Icons
 import {
     SiPython, SiJavascript, SiHtml5, SiCplusplus, SiMysql,
-    SiFlask, SiFastapi, SiReact, SiDocker, SiGit, SiLinux, SiVscode, SiAndroidstudio,
+    SiFlask, SiFastapi, SiReact, SiDocker, SiGit, SiLinux,
     SiPostgresql, SiMongodb, SiRedis, SiNginx, SiProxmox
 } from 'react-icons/si'
 import { DiCss3, DiJava } from 'react-icons/di'
@@ -28,8 +28,6 @@ const skillIcons = {
     'Docker': SiDocker,
     'Git': SiGit,
     'Linux': SiLinux,
-    'VS Code': SiVscode,
-    'Android Studio': SiAndroidstudio,
     // Databases
     'PostgreSQL': SiPostgresql,
     'MySQL': SiMysql,
