@@ -200,28 +200,6 @@ function Home() {
                             </div>
                         </section>
 
-                        {/* Skills Overview */}
-                        <section className="section expertise">
-                            <h2 className="highlight-tape">Area of Expertise</h2>
-
-                            <div className="expertise-diagram">
-                                <div className="sticky-note promotional">
-                                    <span className="handwritten">FULL STACK</span>
-                                </div>
-
-                                <div className="expertise-triangle">
-                                    <div className="triangle-section editorial">
-                                        <span>BACKEND<br />DEVELOPMENT</span>
-                                    </div>
-                                    <div className="triangle-section ui">
-                                        <span>FRONTEND<br />DEVELOPMENT</span>
-                                    </div>
-                                    <div className="triangle-section motion">
-                                        <span>DEVOPS &<br />CLOUD</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </section>
 
                         {/* Education Section */}
                         <section className="section education">
