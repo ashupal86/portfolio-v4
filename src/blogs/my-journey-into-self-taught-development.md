@@ -1,6 +1,6 @@
 ---
 title: My Journey into Self-Taught Development
-date: 2024-12-15
+date: 2026-02-05
 tags: [Personal, Learning, Development]
 ---
 
