@@ -12,8 +12,6 @@
 /* HERO SECTION */
 .hero-section {
     padding: var(--space-3xl) 0;
-    background: linear-gradient(135deg, #FFFFFF 0%, #F8F9FA 100%);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     position: relative;
     overflow: hidden;
 }
@@ -31,6 +29,8 @@
 }
 
 .hero-content {
+    max-width: 80%;
+    margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--space-3xl);
@@ -40,23 +40,15 @@
 
 @media (min-width: 1024px) {
     .hero-content {
-        grid-template-columns: 2fr 1fr;
+        grid-template-columns: 30% 70%;
         align-items: start;
+        gap: var(--space-3xl);
     }
 }
 
 /* HERO MAIN */
 .hero-main {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2xl);
-}
-
-@media (min-width: 768px) {
-    .hero-main {
-        flex-direction: row;
-        align-items: flex-start;
-    }
+    display: contents;
 }
 
 .profile-photo-wrapper {
@@ -93,8 +85,8 @@
 }
 
 .profile-photo {
-    width: 200px;
-    height: 240px;
+    width: 320px;
+    height: 380px;
     background: #FCE4EC;
     /* Pink card on top */
     box-shadow:
@@ -140,6 +132,17 @@
     left: -10px;
     transform: rotate(-15deg);
     z-index: 2;
+}
+
+.paper-clip {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    font-size: 40px;
+    color: #9e9e9e;
+    transform: rotate(30deg);
+    z-index: 3;
+    filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.2));
 }
 
 /* HERO TEXT */
@@ -338,12 +341,42 @@
     border-radius: 50%;
     transition: all var(--transition-base);
     box-shadow: var(--shadow-sm);
+    color: var(--color-text-primary);
 }
 
 .social-icon:hover {
-    transform: translateY(-4px) scale(1.1);
-    box-shadow: var(--shadow-md);
-    background-color: var(--color-highlight-yellow);
+    transform: translateY(-4px) scale(1.15);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* GitHub Icon - Black */
+.social-icon.github-icon {
+    color: #181717;
+}
+
+.social-icon.github-icon:hover {
+    background: linear-gradient(135deg, #181717, #333);
+    color: #fff;
+}
+
+/* LinkedIn Icon - Blue */
+.social-icon.linkedin-icon {
+    color: #0A66C2;
+}
+
+.social-icon.linkedin-icon:hover {
+    background: linear-gradient(135deg, #0A66C2, #004182);
+    color: #fff;
+}
+
+/* Email Icon - Red/Orange */
+.social-icon.email-icon {
+    color: #EA4335;
+}
+
+.social-icon.email-icon:hover {
+    background: linear-gradient(135deg, #EA4335, #C5221F);
+    color: #fff;
 }
 
 /* OLD STYLES - KEEP FOR BACKWARDS COMPATIBILITY */
@@ -495,7 +528,7 @@
 .portfolio-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-2xl);
+    gap: var(--space-3xl);
 }
 
 @media (min-width: 768px) {
@@ -982,18 +1015,11 @@
 }
 
 .skill-level {
-    width: 100%;
-    height: 6px;
-    background-color: var(--color-paper-texture);
-    border-radius: 3px;
-    overflow: hidden;
+    display: none;
 }
 
 .skill-bar {
-    height: 100%;
-    background: linear-gradient(90deg, var(--color-accent-green), var(--color-accent-blue));
-    border-radius: 3px;
-    transition: width var(--transition-slow);
+    display: none;
 }
 
 /* GITHUB STATS */

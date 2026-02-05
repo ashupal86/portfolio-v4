@@ -83,6 +83,60 @@
   --transition-slow: 350ms ease;
 }
 
+[data-theme='dark'] {
+  --color-paper-bg: #0f0f0f;
+  --color-paper-texture: #2a2a2a;
+  --color-highlight-yellow: #FFD700;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #B0B0B0;
+  --color-card-bg: #1a1a1a;
+  --color-shadow: rgba(0, 0, 0, 0.5);
+  --color-shadow-strong: rgba(0, 0, 0, 0.7);
+
+  /* Vibrant accent colors for dark mode */
+  --color-accent-green: #4ECCA3;
+  --color-accent-pink: #FF6B9D;
+  --color-accent-blue: #5DADE2;
+  --color-accent-orange: #FFA726;
+}
+
+/* Dark mode specific adjustments */
+[data-theme='dark'] body {
+  background-image:
+    radial-gradient(circle, #2a2a2a 1.5px, transparent 1.5px),
+    radial-gradient(circle, #2a2a2a 1.5px, transparent 1.5px);
+}
+
+[data-theme='dark'] .section {
+  background-color: rgba(26, 26, 26, 0.6);
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.3),
+    0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='dark'] .section:hover {
+  background-color: rgba(26, 26, 26, 0.8);
+  box-shadow:
+    0 8px 12px rgba(0, 0, 0, 0.4),
+    0 16px 32px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .profile-photo {
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.4),
+    0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] .btn-outline {
+  border-color: var(--color-text-primary);
+  color: var(--color-text-primary);
+}
+
+[data-theme='dark'] .btn-outline:hover {
+  background-color: var(--color-text-primary);
+  color: var(--color-paper-bg);
+}
+
 /* BODY & HTML */
 html {
   font-size: 16px;
@@ -94,17 +148,18 @@ body {
   font-size: var(--text-base);
   line-height: 1.6;
   color: var(--color-text-primary);
-  background-color: #FAFAF8;
+  background-color: var(--color-paper-bg);
   /* Enhanced dotted notebook pattern */
   background-image:
-    radial-gradient(circle, #D0CEC9 1.5px, transparent 1.5px),
-    radial-gradient(circle, #D0CEC9 1.5px, transparent 1.5px);
+    radial-gradient(circle, var(--color-paper-texture) 1.5px, transparent 1.5px),
+    radial-gradient(circle, var(--color-paper-texture) 1.5px, transparent 1.5px);
   background-size: 24px 24px;
   background-position: 0 0, 12px 12px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
   position: relative;
+  transition: background-color var(--transition-base), color var(--transition-base);
 }
 
 /* Add subtle paper texture overlay */

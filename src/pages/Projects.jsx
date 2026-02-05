@@ -38,24 +38,25 @@ function Projects() {
                                 {/* Project Header */}
                                 <div className="project-header">
                                     <div className="project-icon">
-                                        {project.category === 'Web' && '🌐'}
-                                        {project.category === 'Mobile' && '📱'}
-                                        {project.category === 'API' && '🔌'}
-                                        {project.category === 'DevOps' && '⚙️'}
-                                        {project.category === 'Tool' && '🛠️'}
+                                        {project.category === 'frontend' && '🌐'}
+                                        {project.category === 'mobile' && '📱'}
+                                        {project.category === 'backend' && '🔌'}
+                                        {project.category === 'devops' && '⚙️'}
+                                        {project.category === 'fullstack' && '🛠️'}
                                     </div>
                                     <div className="project-meta">
                                         <span className={`project-category ${project.category.toLowerCase()}`}>
                                             {project.category}
                                         </span>
-                                        <span className={`project-status ${project.status.toLowerCase()}`}>
+                                        <span className={`project-status ${project.status.toLowerCase().replace(' ', '-')}`}>
                                             {project.status}
                                         </span>
                                     </div>
                                 </div>
 
                                 {/* Project Content */}
-                                <h2 className="project-title">{project.name}</h2>
+                                <h2 className="project-title">{project.title}</h2>
+                                {project.alias && <p className="project-alias"><em>{project.alias}</em></p>}
                                 <p className="project-description">{project.description}</p>
 
                                 {/* Tech Stack */}
@@ -86,9 +87,9 @@ function Projects() {
                                             <FiGithub /> View Code
                                         </a>
                                     )}
-                                    {project.live && (
+                                    {project.demo && (
                                         <a
-                                            href={project.live}
+                                            href={project.demo}
                                             target="_blank"
                                             rel="noopener noreferrer"
                                             className="project-link live"
