@@ -1,13 +1,19 @@
 import { Link } from 'react-router-dom'
 import { Helmet } from 'react-helmet-async'
-import { profileData, experienceData, skillsData } from '../data/portfolioData'
+import { profileData, experienceData, skillsData, educationData, coreStrengths, funFact } from '../data/portfolioData'
 // Tech Stack Icons
 import {
-    SiPython, SiJavascript, SiHtml5, SiCplusplus, SiMysql,
+    SiPython, SiJavascript, SiHtml5, SiMysql,
     SiFlask, SiFastapi, SiReact, SiDocker, SiGit, SiLinux,
-    SiPostgresql, SiMongodb, SiRedis, SiNginx, SiProxmox
+    SiGithubactions, SiTerraform, SiGooglecloud,
+    SiVercel, SiRender, SiGithub, SiLinkedin
 } from 'react-icons/si'
 import { DiCss3, DiJava } from 'react-icons/di'
+import { FiPaperclip, FiMail } from 'react-icons/fi'
+import { FaAws, FaMicrosoft, FaAndroid, FaRocket, FaCode, FaBriefcase, FaEnvelope } from 'react-icons/fa'
+import { VscCode } from 'react-icons/vsc'
+import { HiMail } from 'react-icons/hi'
+import { IoRocketSharp } from 'react-icons/io5'
 import './Home.css'
 
 // Icon mapping for skills
@@ -16,33 +22,44 @@ const skillIcons = {
     'Python': SiPython,
     'JavaScript': SiJavascript,
     'Java': DiJava,
-    'HTML': SiHtml5,
-    'CSS': DiCss3,
-    'C++': SiCplusplus,
+    'HTML / CSS': SiHtml5,
     'SQL': SiMysql,
     // Frameworks
     'Flask': SiFlask,
     'FastAPI': SiFastapi,
     'React': SiReact,
-    // Tools
+    // DevOps
     'Docker': SiDocker,
+    'Docker Compose': SiDocker,
+    'GitHub Actions': SiGithubactions,
+    'Terraform': SiTerraform,
+    // Cloud
+    'AWS': FaAws,
+    'Google Cloud': SiGooglecloud,
+    'Azure': FaMicrosoft,
+    'Vercel': SiVercel,
+    'Render': SiRender,
+    // Tools
     'Git': SiGit,
     'Linux': SiLinux,
-    // Databases
-    'PostgreSQL': SiPostgresql,
-    'MySQL': SiMysql,
-    'MongoDB': SiMongodb,
-    'Redis': SiRedis,
-    // DevOps
-    'Nginx': SiNginx,
-    'Proxmox': SiProxmox,
+    'Android Studio': FaAndroid,
+    'VS Code': VscCode,
 }
 
 function Home() {
-    // Get primary skills for display
-    const primaryLanguages = skillsData.languages.filter(s => s.primary).slice(0, 6);
-    const primaryFrameworks = skillsData.frameworks.filter(s => s.primary).slice(0, 4);
-    const primaryTools = skillsData.tools.filter(s => s.primary).slice(0, 4);
+    // Skill level mapping for progress bars
+    const levelToPercentage = {
+        'Strong': 90,
+        'Intermediate': 70,
+        'Basic': 50,
+        'Learning': 30,
+        'Basic (Exploring)': 40,
+        'Basic (Deployment)': 45
+    };
+
+    const primaryLanguages = skillsData.languages;
+    const primaryFrameworks = skillsData.frameworks;
+    const primaryTools = [...skillsData.devops, ...skillsData.cloud, ...skillsData.tools];
 
     return (
         <div className="portfolio">
@@ -89,7 +106,7 @@ function Home() {
                         },
                         "alumniOf": {
                             "@type": "EducationalOrganization",
-                            "name": profileData.education.institution
+                            "name": educationData.institution
                         },
                         "sameAs": [
                             profileData.github,
@@ -107,12 +124,15 @@ function Home() {
                             <div className="profile-photo-wrapper">
                                 <div className="profile-photo">
                                     <img
-                                        src="/profile.jpeg"
+                                        src="/profile.png"
                                         alt={`${profileData.name} - Profile Photo`}
                                         className="profile-image"
                                     />
                                 </div>
                                 <div className="yellow-tape top-left"></div>
+                                <div className="paper-clip">
+                                    <FiPaperclip />
+                                </div>
                             </div>
 
                             <div className="hero-text">
@@ -128,38 +148,29 @@ function Home() {
                                         to="/projects"
                                         className="btn btn-primary cta-primary"
                                     >
-                                        💻 View My Projects
+                                        <FaCode style={{ marginRight: '8px', verticalAlign: 'middle' }} /> View My Projects
                                     </Link>
                                     <a
-                                        href={`mailto:${profileData.email}`}
+                                        href={profileData.resume}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
                                         className="btn btn-secondary cta-secondary"
                                     >
-                                        📧 Get In Touch
+                                        <FaBriefcase style={{ marginRight: '8px', verticalAlign: 'middle' }} /> View Resume
+                                    </a>
+                                    <a
+                                        href={`mailto:${profileData.email}`}
+                                        className="btn btn-outline cta-outline"
+                                    >
+                                        <HiMail style={{ marginRight: '8px', verticalAlign: 'middle' }} /> Get In Touch
                                     </a>
                                     <Link
                                         to="/blog"
                                         className="btn btn-outline cta-outline"
                                     >
-                                        📝 Read My Blog
+                                        <IoRocketSharp style={{ marginRight: '8px', verticalAlign: 'middle' }} /> Read My Blog
                                     </Link>
                                 </div>
-                            </div>
-                        </div>
-
-                        {/* Simplified Contact Card */}
-                        <div className="hero-contact-card">
-                            <h3 className="contact-card-title">🚀 Connect With Me</h3>
-
-                            <div className="social-links-compact">
-                                <a href={profileData.github} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub" title="GitHub">
-                                    💻
-                                </a>
-                                <a href={profileData.linkedin} target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn" title="LinkedIn">
-                                    💼
-                                </a>
-                                <a href={`mailto:${profileData.email}`} className="social-icon" aria-label="Email" title="Email">
-                                    📧
-                                </a>
                             </div>
                         </div>
                     </div>
@@ -178,9 +189,9 @@ function Home() {
                             <div className="timeline">
                                 {experienceData.map((exp) => (
                                     <div key={exp.id} className="timeline-item">
-                                        <div className={`timeline-marker ${exp.status === 'active' ? 'green' : ''}`}></div>
+                                        <div className={`timeline-marker ${exp.status === 'Active' ? 'green' : ''}`}></div>
                                         <div className="timeline-content">
-                                            <p className="period">{exp.status}</p>
+                                            <p className="period">{exp.period || exp.duration}</p>
                                             <h3>{exp.role}</h3>
                                             <p className="company">
                                                 {exp.company} · <span className={`badge ${exp.type === 'Internship' ? 'orange' : 'green'}`}>{exp.type}</span>
@@ -209,12 +220,12 @@ function Home() {
                                 <div className="education-item">
                                     <div className="timeline-marker green"></div>
                                     <div>
-                                        <p className="period">{profileData.education.year}</p>
-                                        <h3>{profileData.education.institution}</h3>
+                                        <p className="period">{educationData.status}</p>
+                                        <h3>{educationData.institution}</h3>
                                         <p className="degree">
-                                            {profileData.education.degree} · <span className="badge green">CGPA {profileData.education.cgpa}</span>
+                                            {educationData.degree} · <span className="badge green">CGPA {educationData.cgpa}</span>
                                         </p>
-                                        <p className="location">{profileData.education.location}</p>
+                                        <p className="location">{educationData.location}</p>
                                     </div>
                                 </div>
                             </div>
@@ -227,18 +238,19 @@ function Home() {
                             <div className="skills-grid">
                                 {primaryLanguages.map((lang, idx) => {
                                     const IconComponent = skillIcons[lang.name];
+                                    const percent = levelToPercentage[lang.level] || 50;
                                     return (
-                                        <div key={idx} className={`skill-card lang-${idx}`} title={`${lang.name} - ${lang.level}% proficiency`}>
+                                        <div key={idx} className={`skill-card lang-${idx}`} title={`${lang.name} - ${lang.level}`}>
                                             <div className="skill-icon">
                                                 {IconComponent ? <IconComponent /> : lang.name.substring(0, 2)}
                                             </div>
                                             <p className="skill-name">{lang.name}</p>
                                             <div className="skill-level">
-                                                <div className="skill-bar" style={{ width: `${lang.level}%` }}></div>
+                                                <div className="skill-bar" style={{ width: `${percent}%` }}></div>
                                             </div>
                                             <div className="skill-tooltip">
                                                 <strong>{lang.name}</strong>
-                                                <span className="proficiency">{lang.level}% proficiency</span>
+                                                <span className="proficiency">{lang.level}</span>
                                             </div>
                                         </div>
                                     );
@@ -253,18 +265,19 @@ function Home() {
                             <div className="skills-grid">
                                 {[...primaryFrameworks, ...primaryTools].map((skill, idx) => {
                                     const IconComponent = skillIcons[skill.name];
+                                    const percent = levelToPercentage[skill.level] || 50;
                                     return (
-                                        <div key={idx} className={`skill-card tool-${idx}`} title={`${skill.name} - ${skill.level}% proficiency`}>
+                                        <div key={idx} className={`skill-card tool-${idx}`} title={`${skill.name} - ${skill.level}`}>
                                             <div className="skill-icon">
                                                 {IconComponent ? <IconComponent /> : skill.name.substring(0, 2)}
                                             </div>
                                             <p className="skill-name">{skill.name}</p>
                                             <div className="skill-level">
-                                                <div className="skill-bar" style={{ width: `${skill.level}%` }}></div>
+                                                <div className="skill-bar" style={{ width: `${percent}%` }}></div>
                                             </div>
                                             <div className="skill-tooltip">
                                                 <strong>{skill.name}</strong>
-                                                <span className="proficiency">{skill.level}% proficiency</span>
+                                                <span className="proficiency">{skill.level}</span>
                                             </div>
                                         </div>
                                     );
@@ -272,27 +285,15 @@ function Home() {
                             </div>
                         </section>
 
-                        {/* GitHub Stats */}
-                        <section className="section github-stats">
-                            <h2 className="highlight-tape">GitHub Stats</h2>
-
-                            <div className="stats-grid">
-                                <div className="stat-card">
-                                    <div className="stat-value">{profileData.stats.publicRepos}</div>
-                                    <div className="stat-label">Public Repos</div>
-                                </div>
-                                <div className="stat-card">
-                                    <div className="stat-value">{profileData.stats.totalStars}</div>
-                                    <div className="stat-label">Total Stars</div>
-                                </div>
-                                <div className="stat-card">
-                                    <div className="stat-value">{profileData.stats.followers}</div>
-                                    <div className="stat-label">Followers</div>
-                                </div>
-                                <div className="stat-card">
-                                    <div className="stat-value">{profileData.stats.following}</div>
-                                    <div className="stat-label">Following</div>
-                                </div>
+                        {/* Core Strengths Section */}
+                        <section className="section core-strengths">
+                            <h2 className="highlight-tape">Core Strengths</h2>
+                            <div className="card">
+                                <ul className="achievements">
+                                    {coreStrengths.map((strength, idx) => (
+                                        <li key={idx}>{strength}</li>
+                                    ))}
+                                </ul>
                             </div>
                         </section>
                     </div>
@@ -309,8 +310,8 @@ function Home() {
             {/* Footer */}
             <footer className="portfolio-footer">
                 <div className="container">
-                    <p>© 2024 {profileData.name}. All rights reserved.</p>
-                    <p className="handwritten fun-fact">Fun Fact: Skateboard dost ka hai 😁</p>
+                    <p>© {new Date().getFullYear()} {profileData.name}. All rights reserved.</p>
+                    <p className="handwritten fun-fact">Fun Fact: {funFact}</p>
                 </div>
             </footer>
         </div>

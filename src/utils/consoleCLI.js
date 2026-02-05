@@ -1,5 +1,6 @@
 // Console CLI for Portfolio
 // Fun interactive CLI for developers inspecting the portfolio
+import { profileData, skillsData, experienceData, projectsData, educationData } from '../data/portfolioData';
 
 const portfolioConsole = {
     init() {
@@ -15,7 +16,7 @@ const portfolioConsole = {
 
         // Welcome message
         console.log('%c👋 Hey there, Developer!', styles.title);
-        console.log('%cWelcome to Ashish Pal\'s Portfolio', styles.subtitle);
+        console.log(`%cWelcome to ${profileData.name}'s Portfolio`, styles.subtitle);
         console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', styles.text);
         console.log('%c\nI see you\'re curious about how this portfolio works! 🔍', styles.info);
         console.log('%cFeel free to explore the code and learn from it.\n', styles.text);
@@ -37,61 +38,51 @@ const portfolioConsole = {
 
     commands: {
         about() {
-            console.log('%c👨‍💻 About Ashish Pal', 'color: #FFE500; font-size: 18px; font-weight: bold;');
+            console.log(`%c👨‍💻 About ${profileData.name}`, 'color: #FFE500; font-size: 18px; font-weight: bold;');
             console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #95A5A6;');
-            console.log('🎓 Computer Science Student at NIET (4th Year)');
-            console.log('💼 DevOps Intern at GreenTree China');
-            console.log('🚀 3+ Years of Self-Learning Journey');
-            console.log('💻 Passionate about Python, Flask, React, and DevOps');
-            console.log('🏠 Building a Proxmox homelab for learning');
-            console.log('\n📍 Location: Greater Noida, India');
-            console.log('📧 Email: palbro86@gmail.com');
-            console.log('🔗 Website: https://ashu.devinit.in');
+            console.log(`🎓 ${educationData.degree} at ${educationData.institution} (${educationData.status})`);
+            const currentExp = experienceData.find(e => e.status === 'Active') || experienceData[0];
+            console.log(`💼 ${currentExp.role} at ${currentExp.company}`);
+            console.log(`🚀 ${profileData.title}`);
+            console.log(`💻 ${profileData.bio}`);
+            console.log('\n📍 Location: ' + profileData.location);
+            console.log('📧 Email: ' + profileData.email);
+            console.log('🔗 Website: ' + profileData.website);
         },
 
         skills() {
             console.log('%c🛠️ Technical Skills', 'color: #3498DB; font-size: 18px; font-weight: bold;');
             console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #95A5A6;');
-            console.table({
-                'Languages': 'Python, JavaScript, Java, C++, SQL',
-                'Frontend': 'React, HTML5, CSS3',
-                'Backend': 'Flask, FastAPI, Node.js',
-                'Databases': 'PostgreSQL, MySQL, MongoDB, Redis',
-                'DevOps': 'Docker, Git, Linux, Nginx, Proxmox',
-                'Tools': 'VS Code, Android Studio, Postman'
+
+            const flatSkills = {};
+            Object.keys(skillsData).forEach(cat => {
+                flatSkills[cat.charAt(0).toUpperCase() + cat.slice(1)] = skillsData[cat].map(s => s.name).join(', ');
             });
+            console.table(flatSkills);
         },
 
         projects() {
             console.log('%c🚀 Featured Projects', 'color: #2ECC71; font-size: 18px; font-weight: bold;');
             console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #95A5A6;');
-            console.log('\n1. 📱 My Manager App');
-            console.log('   Android app for shop management with SQLite');
-            console.log('   Tech: Java, Android, SQLite\n');
 
-            console.log('2. 📝 Notes API');
-            console.log('   RESTful API for cross-device note synchronization');
-            console.log('   Tech: Python, Flask, PostgreSQL\n');
+            projectsData.slice(0, 5).forEach((project, idx) => {
+                console.log(`\n${idx + 1}. ${project.title}`);
+                console.log(`   ${project.description}`);
+                console.log(`   Tech: ${project.technologies.join(', ')}\n`);
+            });
 
-            console.log('3. 🏠 Proxmox Homelab');
-            console.log('   Self-hosted infrastructure with GPU passthrough');
-            console.log('   Tech: Proxmox, Docker, TrueNAS, Linux\n');
-
-            console.log('4. 💼 This Portfolio');
-            console.log('   Modern portfolio with blog and project showcase');
-            console.log('   Tech: React, Vite, React Router\n');
-
-            console.log('%cView all projects: %chttps://github.com/ashupal86', 'color: #95A5A6;', 'color: #3498DB; text-decoration: underline;');
+            console.log(`%cView all projects: %c${profileData.github}`, 'color: #95A5A6;', 'color: #3498DB; text-decoration: underline;');
         },
 
         contact() {
             console.log('%c📬 Contact Information', 'color: #E74C3C; font-size: 18px; font-weight: bold;');
             console.log('%c━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━', 'color: #95A5A6;');
-            console.log('\n📧 Email: palbro86@gmail.com');
-            console.log('📱 Phone: +91-7428450179');
-            console.log('💼 LinkedIn: https://linkedin.com/in/ashish-pal-5725a6257');
-            console.log('💻 GitHub: https://github.com/ashupal86');
-            console.log('🌐 Website: https://ashu.devinit.in');
+            console.log(`\n📧 Email: ${profileData.email}`);
+            console.log(`📱 Phone: ${profileData.phone}`);
+            console.log(`💼 LinkedIn: ${profileData.linkedin}`);
+            console.log(`💻 GitHub: ${profileData.github}`);
+            console.log(`🌐 Website: ${profileData.website}`);
+            console.log(`📄 Resume: ${profileData.resume}`);
             console.log('\n💡 Feel free to reach out for collaborations or opportunities!');
         },
 

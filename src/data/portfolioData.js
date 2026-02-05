@@ -1,396 +1,239 @@
-// Static Portfolio Data for Ashish Pal (ashupal86)
-// Real data gathered from GitHub profile and LinkedIn
-
 export const profileData = {
-    name: "Ashish Pal",
-    username: "ashupal86",
-    title: "Aspiring Developer | 3+ Years Self-Learning | Python & Flask Enthusiast",
-    bio: "💻 Self-taught Developer with 3+ years of learning journey | 🌐 DevOps Enthusiast | 📦 Exploring Linux 🚀 Passionate about building APIs, web apps, and continuous learning. Final Year CS Student at NIET",
-    location: "Greater Noida, Uttar Pradesh, India",
-    website: "https://ashu.devinit.in",
-    github: "https://github.com/ashupal86",
-    linkedin: "https://linkedin.com/in/ashish-pal-5725a6257",
-    email: "palbro86@gmail.com",
-    phone: "+91-7428450179",
-
-    stats: {
-        followers: 14,
-        following: 26,
-        publicRepos: 42,
-        totalStars: 7
-    },
-
-    education: {
-        degree: "B.Tech in Computer Science Engineering",
-        institution: "Noida Institute of Engineering and Technology (NIET)",
-        location: "Greater Noida, Uttar Pradesh",
-        year: "4th Year (Pursuing)",
-        cgpa: "6.5/10",
-        status: "pursuing"
-    }
+  name: "Ashish Pal",
+  username: "ashupal86",
+  title: "Backend-Focused Developer | FastAPI & Flask | DevOps Exposure",
+  bio: "Self-taught developer with 3+ years of hands-on learning. Strong in Python backend development (FastAPI, Flask), containerization with Docker, and Linux-based workflows. Final-year B.Tech (CSE) student at NIET with practical DevOps internship experience.",
+  location: "Greater Noida, Uttar Pradesh, India",
+  website: "https://ashu.devinit.in",
+  github: "https://github.com/ashupal86",
+  linkedin: "https://linkedin.com/in/ashish-pal-5725a6257",
+  email: "palbro86@gmail.com",
+  phone: "+91-7428450179",
+  resume: "https://docs.google.com/document/d/1KuVv5h7r2wk0rPpHwkI9uRR0k2iwEkOd62S5MvmUPhE/edit?usp=sharing"
 };
 
-export const projectsData = [
-    {
-        id: 1,
-        title: "Portfolio Website",
-        description: "My portfolio is inspired from the appearance of bash terminal. I love terminals and that give me inspiration to build and deploy a web based terminal portfolio website.",
-        fullDescription: "A modern, responsive portfolio website showcasing my skills and projects. Built with React and Vite, featuring a clean design inspired by terminal aesthetics.",
-        category: "frontend",
-        featured: true,
-        technologies: ["React", "Vite", "HTML", "CSS", "JavaScript"],
-        github: "https://github.com/ashupal86/portfolio",
-        demo: "https://portfolio-9ucx.onrender.com/",
-        status: "live",
-        features: [
-            "Responsive design for all devices",
-            "Modern React architecture with Vite",
-            "Terminal-inspired aesthetic",
-            "Fast loading and optimized performance",
-            "SEO optimized with meta tags"
-        ],
-        lastUpdated: "2024-12-15",
-        stars: 0,
-        forks: 0
-    },
-    {
-        id: 2,
-        title: "My Manager",
-        description: "An Android app built with Java and SQLite database to digitalize the bookkeeping of shop owners. It replaces their daily basic calculator and helps them efficiently manage customer bills, daily profits, and track who is taking too much udhar (credit) from the shop.",
-        fullDescription: "A comprehensive Android application designed specifically for small shop owners to modernize their business operations. Built with Java and SQLite, it serves as a complete business management solution.",
-        category: "mobile",
-        featured: true,
-        technologies: ["Java", "Android Studio", "SQLite", "XML"],
-        github: "https://github.com/ashupal86/my-manager",
-        status: "completed",
-        features: [
-            "Digital bookkeeping system",
-            "Built-in calculator replacement",
-            "Customer bill management",
-            "Daily profit tracking",
-            "Credit (udhar) monitoring system",
-            "Offline-first SQLite database",
-            "User-friendly interface for shop owners"
-        ],
-        lastUpdated: "2024-09-30",
-        stars: 0,
-        forks: 0
-    },
-    {
-        id: 3,
-        title: "Notes API",
-        description: "API for creating apps and storing notes on a server for syncing across all the devices",
-        fullDescription: "A comprehensive RESTful API for note management with CRUD operations, structured JSON responses, and robust error handling. Perfect for building note-taking applications.",
-        category: "backend",
-        featured: true,
-        technologies: ["Python", "Flask", "SQLite", "REST API"],
-        github: "https://github.com/ashupal86/Notes-api",
-        status: "active",
-        features: [
-            "Complete CRUD operations for notes",
-            "Cross-device synchronization",
-            "Structured JSON responses",
-            "Error handling and validation",
-            "SQLite database integration"
-        ],
-        lastUpdated: "2024-11-30",
-        stars: 0,
-        forks: 0
-    },
-    {
-        id: 4,
-        title: "Blog Website",
-        description: "A dynamic blog platform featuring user authentication, post management, and responsive design.",
-        fullDescription: "A full-featured blog website with user authentication, post creation, editing, and management capabilities. Built with Flask and featuring a responsive design.",
-        category: "fullstack",
-        featured: true,
-        technologies: ["HTML", "CSS", "Python", "Flask", "SQLite"],
-        github: "https://github.com/ashupal86/Blog-Website",
-        status: "completed",
-        features: [
-            "User authentication system",
-            "Create, edit, and delete posts",
-            "Responsive design",
-            "Comment system",
-            "User dashboard"
-        ],
-        lastUpdated: "2024-09-15",
-        stars: 1,
-        forks: 0
-    },
-    {
-        id: 5,
-        title: "YouTube Video Downloader",
-        description: "Download any youtube video using this docker image. This uses the pytube library of python to download the video.",
-        fullDescription: "A dockerized YouTube video downloader that uses Python's pytube library to download videos in various formats and qualities.",
-        category: "devops",
-        featured: true,
-        technologies: ["Python", "Docker", "PyTube"],
-        github: "https://github.com/ashupal86/Youtube-Video",
-        status: "active",
-        features: [
-            "Docker containerization",
-            "Multiple video format support",
-            "Quality selection options",
-            "Batch download capability",
-            "Easy deployment"
-        ],
-        lastUpdated: "2024-08-10",
-        stars: 0,
-        forks: 0
-    },
-    {
-        id: 6,
-        title: "Android Calculator",
-        description: "This is an android calculator built in java. I learned a lot of java concepts while building this as this is pure array modification to solve the problem. This does not use any type of external library to solve the problem.",
-        fullDescription: "A fully functional Android calculator application built in Java without external libraries, using pure array manipulation for mathematical operations.",
-        category: "mobile",
-        featured: false,
-        technologies: ["Java", "Android Studio", "XML"],
-        github: "https://github.com/ashupal86/Bharat_intern_calculator",
-        status: "completed",
-        features: [
-            "Basic arithmetic operations",
-            "Pure Java implementation",
-            "No external dependencies",
-            "Custom array-based calculation logic",
-            "Android native UI"
-        ],
-        lastUpdated: "2024-07-20",
-        stars: 0,
-        forks: 0
-    },
-    {
-        id: 7,
-        title: "Self-Hosted Homelab",
-        description: "A Proxmox server running multiple containers including a Windows 11 Pro VM with GPU passthrough as my daily driver, TrueNAS Scale for NAS storage, and multiple Linux VMs for self-hosted services, testing, and debugging with snapshot restore capabilities.",
-        fullDescription: "A comprehensive homelab setup built on Proxmox virtualization platform, featuring enterprise-grade infrastructure for personal use, development, and learning.",
-        category: "devops",
-        featured: true,
-        technologies: ["Proxmox", "Windows 11 Pro", "TrueNAS Scale", "Linux VMs", "GPU Passthrough", "Docker", "Virtualization"],
-        github: "https://github.com/ashupal86/homelab-setup",
-        status: "ongoing",
-        features: [
-            "Proxmox virtualization platform",
-            "Windows 11 Pro VM with GPU passthrough",
-            "Native OS speed with display connectivity",
-            "TrueNAS Scale for NAS storage",
-            "Self-hosted file management services",
-            "Photo storage alternatives",
-            "Linux testing and debugging environment",
-            "VM snapshot and restore functionality",
-            "Multiple containerized services"
-        ],
-        lastUpdated: "2024-12-01",
-        stars: 2,
-        forks: 1
-    }
+/* =========================
+   CORE STRENGTHS
+========================= */
+export const coreStrengths = [
+  "Backend API development using FastAPI & Flask",
+  "Docker-based containerization and local dev environments",
+  "Linux-first development workflow",
+  "Practical DevOps exposure (CI/CD, cloud basics)",
+  "Building real-world projects for small business use cases"
 ];
 
-export const skillsData = {
-    languages: [
-        { name: "Python", level: 90, category: "backend", primary: true },
-        { name: "JavaScript", level: 85, category: "frontend", primary: true },
-        { name: "Java", level: 80, category: "backend", primary: true },
-        { name: "HTML/CSS", level: 90, category: "frontend", primary: true },
-        { name: "C++", level: 50, category: "programming", primary: false },
-        { name: "SQL", level: 80, category: "database", primary: true }
-    ],
-
-    frameworks: [
-        { name: "Flask", level: 90, category: "backend", primary: true },
-        { name: "FastAPI", level: 70, category: "backend", primary: true },
-        { name: "React", level: 65, category: "frontend", primary: true },
-        { name: "Vite", level: 70, category: "build-tool", primary: false },
-        { name: "Bootstrap", level: 85, category: "frontend", primary: false }
-    ],
-
-    tools: [
-        { name: "Docker", level: 55, category: "devops", primary: true },
-        { name: "Git", level: 90, category: "version-control", primary: true },
-        { name: "Linux", level: 80, category: "os", primary: true },
-        { name: "VS Code", level: 95, category: "editor", primary: false },
-        { name: "Android Studio", level: 75, category: "mobile", primary: false },
-        { name: "Figma", level: 70, category: "design", primary: false }
-    ],
-
-    databases: [
-        { name: "SQLite", level: 85, category: "database", primary: true },
-        { name: "MySQL", level: 80, category: "database", primary: true },
-        { name: "PostgreSQL", level: 70, category: "database", primary: false }
-    ],
-
-    cloud: [
-        { name: "Google Cloud", level: 65, category: "cloud", primary: false },
-        { name: "Vercel", level: 80, category: "hosting", primary: true },
-        { name: "Render", level: 85, category: "hosting", primary: true },
-        { name: "GitHub", level: 90, category: "platform", primary: true }
-    ]
+/* =========================
+   EDUCATION
+========================= */
+export const educationData = {
+  degree: "B.Tech in Computer Science Engineering",
+  institution: "Noida Institute of Engineering and Technology (NIET)",
+  location: "Greater Noida, Uttar Pradesh",
+  status: "Final Year (Pursuing)",
+  cgpa: "6.5 / 10"
 };
 
+/* =========================
+   EXPERIENCE
+========================= */
 export const experienceData = [
-    {
-        id: 1,
-        role: "DevOps Intern",
-        company: "GreenTree China",
-        type: "Internship",
-        location: "Remote | Part Time",
-        duration: "2025",
-        period: "3 Months",
-        status: "Aug 2025 - Present",
-        description: "Working with leading developers to provide seamless environment for testing and deployment by automating tasks.",
-        achievements: [
-            "Completed the 10 Days training program for learning and hands-on for basic tools and technologies."
-        ],
-        technologies: ["Python", "Grafana", "Terraform", "Git/GitHub", "Docker", "Linux", "Virtual Machines", "AWS", "Azure"],
-        skills: ["Monitoring", "IaC", "Load Balancers", "Automated Testing", "Seamless Deployment with 99% uptime"]
-    },
-    {
-        id: 2,
-        role: "Technical Head",
-        company: "Ekume Club, NIET",
-        type: "Leadership",
-        location: "Greater Noida, UP",
-        duration: "2024 - Present",
-        period: "Current",
-        status: "active",
-        description: "Leading technical initiatives and mentoring fellow students in programming and development practices. Responsible for organizing tech events and workshops at the campus.",
-        achievements: [
-            "Organized 5+ technical events including TEDx talks and coding competitions",
-            "Conducted deployment workshop on Docker & Render",
-            "Mentored students in web development and programming",
-            "Managed technical aspects of club activities and events",
-            "Received BharatXR recognition for successfully managing tech events"
-        ],
-        technologies: ["Event Management", "Docker", "Teaching", "Leadership"],
-        skills: ["Team Leadership", "Event Organization", "Mentoring", "Public Speaking"]
-    }
+  {
+    id: 1,
+    role: "DevOps Intern",
+    company: "Springer Capital",
+    type: "Internship",
+    location: "Remote | Part Time",
+    duration: "4 Months",
+    period: "Sep 2025 – 1 Jan 2026",
+    status: "Completed",
+    description:
+      "Worked under supervision on DevOps and deployment workflows, focusing on containerization, CI/CD assistance, and cloud exposure.",
+    achievements: [
+      "Containerized applications using Docker and Docker Compose",
+      "Assisted in CI/CD pipelines using GitHub Actions",
+      "Worked with Linux-based environments for deployments",
+      "Observed monitoring metrics via Grafana and Prometheus",
+      "Explored Terraform fundamentals for Infrastructure-as-Code concepts",
+      "Gained hands-on exposure to Azure and AWS cloud environments"
+    ],
+    technologies: [
+      "Docker",
+      "Docker Compose",
+      "Linux",
+      "Git",
+      "GitHub",
+      "GitHub Actions",
+      "AWS",
+      "Azure",
+      "Terraform (learning)",
+      "Grafana",
+      "Prometheus"
+    ]
+  },
+  {
+    id: 2,
+    role: "Technical Head",
+    company: "Ekume Club, NIET",
+    type: "Leadership",
+    location: "Greater Noida, UP",
+    period: "2024 – 2025",
+    status: "Completed",
+    description:
+      "Leading technical initiatives, mentoring students, and managing technical execution for college-level events and workshops.",
+    achievements: [
+      "Organized multiple technical events including coding competitions and tech talks",
+      "Conducted hands-on workshops on Docker and web deployment",
+      "Mentored students in backend and web development",
+      "Managed technical infrastructure for club events",
+      "Received BharatXR recognition for technical event management"
+    ],
+    skills: ["Leadership", "Mentoring", "Event Management", "Public Speaking"]
+  }
 ];
 
-export const achievementsData = [
-    {
-        id: 1,
-        title: "1st Place - Website Bug Fixing Competition",
-        event: "Web Showdown, ISTE NIET",
-        type: "competition",
-        date: "2024",
-        icon: "🏆",
-        description: "Won first place in a website debugging competition, demonstrating strong problem-solving skills and attention to detail."
-    },
-    {
-        id: 2,
-        title: "3rd Place - Website Building Competition",
-        event: "Web Wizard, NIET",
-        type: "competition",
-        date: "2024",
-        icon: "🥉",
-        description: "Secured third position in a website development competition, showcasing web development skills and creativity."
-    },
-    {
-        id: 3,
-        title: "BharatXR Recognition",
-        event: "Tech Event Management",
-        type: "recognition",
-        date: "2024",
-        icon: "🏅",
-        description: "Received recognition from BharatXR for successfully organizing and managing technical events at college."
-    },
-    {
-        id: 4,
-        title: "GitHub Achievement: Pull Shark",
-        event: "GitHub",
-        type: "badge",
-        date: "2024",
-        icon: "🦈",
-        description: "Earned GitHub's Pull Shark achievement for contributing to open source projects through pull requests."
-    },
-    {
-        id: 5,
-        title: "GitHub Achievement: Quickdraw",
-        event: "GitHub",
-        type: "badge",
-        date: "2024",
-        icon: "⚡",
-        description: "Earned GitHub's Quickdraw achievement for rapidly closing issues and pull requests."
-    }
+/* =========================
+   PROJECTS
+========================= */
+export const projectsData = [
+  {
+    id: 1,
+    title: "ClearLedger",
+    alias: "Formerly My Manager (Android)",
+    category: "fullstack",
+    featured: true,
+    description:
+      "A bookkeeping and billing solution for small shop owners to manage customers, credit (udhar), and daily transactions.",
+    fullDescription:
+      "ClearLedger is a practical business management system designed for small merchants. It evolved from an Android-only app (My Manager) into a broader product concept focusing on digital bookkeeping and customer management.",
+    technologies: ["Java", "Android", "SQLite", "Python", "FastAPI"],
+    status: "Ongoing",
+    features: [
+      "Customer and credit (udhar) management",
+      "Daily transaction and profit tracking",
+      "Offline-first Android implementation",
+      "Backend API development for future scalability"
+    ],
+    github: "https://github.com/ashupal86/my-manager"
+  },
+  {
+    id: 2,
+    title: "Portfolio Website",
+    category: "frontend",
+    featured: true,
+    description:
+      "Terminal-inspired personal portfolio showcasing projects and skills.",
+    technologies: ["React", "Vite", "HTML", "CSS", "JavaScript"],
+    status: "Live",
+    github: "https://github.com/ashupal86/portfolio",
+    demo: "https://portfolio-9ucx.onrender.com/"
+  },
+  {
+    id: 3,
+    title: "Notes API",
+    category: "backend",
+    featured: true,
+    description:
+      "A RESTful API for creating and syncing notes across devices.",
+    technologies: ["Python", "Flask", "SQLite"],
+    status: "Active",
+    github: "https://github.com/ashupal86/Notes-api"
+  },
+  {
+    id: 4,
+    title: "Blog Website",
+    category: "fullstack",
+    description:
+      "A dynamic blog platform with authentication and post management.",
+    technologies: ["Python", "Flask", "HTML", "CSS", "SQLite"],
+    status: "Completed",
+    github: "https://github.com/ashupal86/Blog-Website"
+  }
 ];
 
+/* =========================
+   SKILLS (NO PERCENTAGES)
+========================= */
+export const skillsData = {
+  languages: [
+    { name: "Python", level: "Strong" },
+    { name: "Java", level: "Intermediate" },
+    { name: "JavaScript", level: "Basic" },
+    { name: "HTML / CSS", level: "Strong" },
+    { name: "SQL", level: "Intermediate" }
+  ],
+  frameworks: [
+    { name: "FastAPI", level: "Intermediate" },
+    { name: "Flask", level: "Strong" },
+    { name: "React", level: "Basic" }
+  ],
+  devops: [
+    { name: "Docker", level: "Intermediate" },
+    { name: "Docker Compose", level: "Intermediate" },
+    { name: "GitHub Actions", level: "Basic" },
+    { name: "Terraform", level: "Learning" }
+  ],
+  cloud: [
+    { name: "AWS", level: "Intermediate" },
+    { name: "Google Cloud", level: "Intermediate" },
+    { name: "Azure", level: "Basic (Exploring)" },
+    { name: "Vercel", level: "Basic (Deployment)" },
+    { name: "Render", level: "Basic (Deployment)" }
+  ],
+  tools: [
+    { name: "Git", level: "Strong" },
+    { name: "Linux", level: "Strong" },
+    { name: "Android Studio", level: "Intermediate" },
+    { name: "VS Code", level: "Strong" }
+  ]
+};
+
+/* =========================
+   CERTIFICATIONS
+========================= */
 export const certificationsData = [
-    {
-        id: 1,
-        title: "Python (Basic)",
-        issuer: "HackerRank",
-        date: "2024",
-        type: "certification",
-        skills: ["Python Programming", "Data Structures", "Algorithms"]
-    },
-    {
-        id: 2,
-        title: "Java (Basic)",
-        issuer: "HackerRank",
-        date: "2024",
-        type: "certification",
-        skills: ["Java Programming", "OOP Concepts", "Basic Algorithms"]
-    },
-    {
-        id: 3,
-        title: "Google Cloud Computing Foundations",
-        issuer: "Google Cloud",
-        date: "2024",
-        type: "course",
-        skills: ["Cloud Computing", "Google Cloud Platform", "Infrastructure"]
-    }
+  {
+    title: "Python (Basic)",
+    issuer: "HackerRank",
+    year: "2024"
+  },
+  {
+    title: "Java (Basic)",
+    issuer: "HackerRank",
+    year: "2024"
+  },
+  {
+    title: "Google Cloud Computing Foundations",
+    issuer: "Google Cloud",
+    year: "2024"
+  }
 ];
 
-export const hobbiesData = [
-    { name: "Gaming", icon: "🎮", description: "PC and mobile gaming enthusiast" },
-    { name: "Music", icon: "🎵", description: "Listening to various genres of music" },
-    { name: "Skateboarding", icon: "🛹", description: "Recreational skateboarding (using friend's board 😁)" },
-    { name: "Learning", icon: "📚", description: "Continuously learning new technologies" }
-];
-
-export const socialLinks = [
-    {
-        name: "GitHub",
-        url: "https://github.com/ashupal86",
-        icon: "💻",
-        username: "@ashupal86"
-    },
-    {
-        name: "LinkedIn",
-        url: "https://linkedin.com/in/ashish-pal-5725a6257",
-        icon: "💼",
-        username: "ashish-pal-5725a6257"
-    },
-    {
-        name: "Email",
-        url: "mailto:palbro86@gmail.com",
-        icon: "📧",
-        username: "palbro86@gmail.com"
-    }
-];
-
-// Currently learning
+/* =========================
+   CURRENT LEARNING
+========================= */
 export const currentlyLearning = [
-    "Advanced Docker",
-    "Advanced FastAPI",
-    "Microservices",
-    "CI/CD Pipelines",
-    "React Advanced Patterns"
+  "Advanced Docker",
+  "FastAPI Best Practices",
+  "Microservices Architecture",
+  "CI/CD Pipelines",
+  "AWS DevOps Concepts"
 ];
 
-// Fun fact
-export const funFact = "Skateboard dost ka hai 😁 (The skateboard belongs to my friend 😁)";
+/* =========================
+   FUN FACT
+========================= */
+export const funFact =
+  "Skateboard dost ka hai 😁 (The skateboard belongs to my friend 😁)";
 
 export default {
-    profileData,
-    projectsData,
-    skillsData,
-    experienceData,
-    achievementsData,
-    certificationsData,
-    hobbiesData,
-    socialLinks,
-    currentlyLearning,
-    funFact
+  profileData,
+  coreStrengths,
+  educationData,
+  experienceData,
+  projectsData,
+  skillsData,
+  certificationsData,
+  currentlyLearning,
+  funFact
 };
